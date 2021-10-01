@@ -5,3 +5,9 @@ h1 {
 .about-image {
   height: 500px;
 }
+
+.con {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

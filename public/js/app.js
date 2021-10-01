@@ -11,7 +11,7 @@ searchForm.addEventListener("submit", (e) => {
     (response) => {
       response.json().then((data) => {
         if (data.error) {
-          console.log(data.error);
+          //   msg1.textContent = data.error;
         } else {
           msg1.textContent = data.location;
           msg2.textContent = data.forecast;

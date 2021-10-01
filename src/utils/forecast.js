@@ -1,12 +1,13 @@
+require("dotenv").config();
 const request = require("postman-request");
+const accessKey = process.env.WS_ACCESS;
 
 const forecast = (longitude, latitude, callback) => {
   const geoLoc = longitude.toString() + "," + latitude.toString();
-  const url = `http://api.weatherstack.com/current?access_key=8f8dc6e1f57ca0b8327ad2436dde3862&query=${geoLoc}`;
+  const url = `http://api.weatherstack.com/current?access_key=${accessKey}&query=${geoLoc}`;
 
   request({ url: url, json: true }, (err, response) => {
     const { current } = response.body;
-
     if (err) {
       callback("weatherStack service unavailable", undefined);
     } else if (response.body.error) {
