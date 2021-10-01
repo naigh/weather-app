@@ -8,6 +8,7 @@ const forecast = (longitude, latitude, callback) => {
 
   request({ url: url, json: true }, (err, response) => {
     const { current } = response.body;
+
     if (err) {
       callback("weatherStack service unavailable", undefined);
     } else if (response.body.error) {
@@ -15,7 +16,7 @@ const forecast = (longitude, latitude, callback) => {
     } else {
       callback(
         undefined,
-        `${current.weather_descriptions[0]}. It is currentyl ${current.temperature} degrees out. It feels like ${current.feelslike} degrees out.`
+        `${current.weather_descriptions[0]}. It is currentyl ${current.temperature} degrees out. It feels like ${current.feelslike} degrees out. The humidity is ${current.humidity}`
       );
     }
   });
