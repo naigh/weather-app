@@ -5,7 +5,7 @@ const geocode = require("./utils/geocode");
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-
+const port = parseInt(process.env.PORT) || 3000;
 const app = express();
 
 // Paths
@@ -71,6 +71,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(parseInt(process.env.PORT), () => {
-  console.log("server is up on port: " + process.env.PORT);
+app.listen(port, () => {
+  console.log("server is up on port: " + port);
 });
